@@ -1,0 +1,27 @@
+[
+  {
+    "name": "mcDonald's",
+    "food": "burgers"
+  },
+  {
+    "name": "Sobhy kaber",
+    "food": "Chicken"
+  },
+  {
+    "name" : "El Prince",
+    "food" : "Liver"
+  },
+  {
+    "name" : "Abo Tarek",
+    "food" : "Kushari"
+  },
+  {
+    "name" : "Shalabi",
+    "food" : "Hawawshy"
+  },
+  {
+    "name" : "Heaven",
+    "food" : "Pasta"
+  }
+  
+]

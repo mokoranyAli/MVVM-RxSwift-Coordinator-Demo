@@ -19,11 +19,12 @@ final class RestaurantListViewModel {
   }
   
   func fetchRestaurantViewModels() -> Observable<[RestaurantViewModel]> {
-    restaurantService.fetchRestaurants().map { $0.map {
+    restaurantService.fetchRestaurantsRx().map { $0.map {
       RestaurantViewModel(restaurant: $0)
       
       }
     }
   }
+
   
 }

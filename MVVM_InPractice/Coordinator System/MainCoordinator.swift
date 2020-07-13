@@ -17,8 +17,8 @@ class MainCoordinator : Coordinator {
   }
   
   func start() {
-    let vc = RestaurantsViewController.instantiate()
-    vc.viewModel = RestaurantListViewModel()
+    let vc = ViewController.instantiate()
+   // vc.viewModel = RestaurantListViewModel()
     vc.coordinator = self
     childCoordinators.append(vc.coordinator!)
     navigationController.pushViewController(vc, animated: false)
@@ -27,8 +27,9 @@ class MainCoordinator : Coordinator {
   func Details() {
     let vc = DetailsViewController.instantiate()
     vc.coordinator = self
-    childCoordinators.append(vc.coordinator!)
     navigationController.pushViewController(vc, animated: true)
   }
+  
+ 
   
 }

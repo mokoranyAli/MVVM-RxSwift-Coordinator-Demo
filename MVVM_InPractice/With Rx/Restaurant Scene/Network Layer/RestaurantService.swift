@@ -10,12 +10,12 @@ import Foundation
 import RxSwift
 
 protocol RestaurantServiceProtocol {
-  func fetchRestaurants() -> Observable<[Restaurant]>
+  func fetchRestaurantsRx() -> Observable<[Restaurant]>
 }
 
 class RestaurantService : RestaurantServiceProtocol{
   
-  func fetchRestaurants() -> Observable<[Restaurant]> {
+  func fetchRestaurantsRx() -> Observable<[Restaurant]> {
     return Observable.create { observer -> Disposable in
       
       guard let path = Bundle.main.path(forResource: "restaurants", ofType: "json")
