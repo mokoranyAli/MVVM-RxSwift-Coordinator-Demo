@@ -21,7 +21,7 @@ private var viewModel = UserViewModel()
     }
 
   @IBAction func showDetailsScreenBtn(_ sender: Any) {
-    coordinator?.Details()
+   // coordinator?.Details()
   }
   
   func setupViewModelBinding() {

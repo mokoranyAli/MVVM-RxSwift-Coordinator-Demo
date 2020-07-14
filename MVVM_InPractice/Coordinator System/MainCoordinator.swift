@@ -17,15 +17,16 @@ class MainCoordinator : Coordinator {
   }
   
   func start() {
-    let vc = ViewController.instantiate()
-   // vc.viewModel = RestaurantListViewModel()
+    let vc = RestaurantsViewController.instantiate()
+    vc.viewModel = RestaurantListViewModel()
     vc.coordinator = self
     childCoordinators.append(vc.coordinator!)
     navigationController.pushViewController(vc, animated: false)
   }
   
-  func Details() {
+  func showDetailsScreen(restaurantName:String) {
     let vc = DetailsViewController.instantiate()
+    vc.displayedText = restaurantName
     vc.coordinator = self
     navigationController.pushViewController(vc, animated: true)
   }

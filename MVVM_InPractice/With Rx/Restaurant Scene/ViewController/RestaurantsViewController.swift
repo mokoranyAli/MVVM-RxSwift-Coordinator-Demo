@@ -11,7 +11,10 @@ import RxSwift
 import RxCocoa
 
 
-class RestaurantsViewController: UIViewController , Storyboarded{
+class RestaurantsViewController: UIViewController , Storyboarded {
+  
+  
+  
   weak var coordinator:MainCoordinator?
 
   @IBOutlet weak var restaurantsTableView: UITableView!
@@ -26,15 +29,22 @@ class RestaurantsViewController: UIViewController , Storyboarded{
     navigationController?.navigationBar.prefersLargeTitles = true
     restaurantsTableView.contentInsetAdjustmentBehavior = .never
     
-    
+    setupDidSelectRowTableView()
     
     viewModel.fetchRestaurantViewModels().observeOn(MainScheduler.instance).bind(to: restaurantsTableView.rx.items(cellIdentifier: "cell")) {index , viewModel , cell in
        cell.textLabel?.text = viewModel.displayText
     }.disposed(by: disposeBag)
     
+    
     }
     
-
+  func setupDidSelectRowTableView() {
+   _ = restaurantsTableView.rx.modelSelected(RestaurantViewModel.self).subscribe(onNext:{[weak self]
+      restaurant in
+    print(restaurant.displayText)
+    self?.coordinator?.showDetailsScreen(restaurantName: restaurant.displayText)
+   }).disposed(by: disposeBag)
+  }
 
 
 }
